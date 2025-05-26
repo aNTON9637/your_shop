@@ -1,0 +1,11 @@
+/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
+  Access-Control-Allow-Headers: *
+
+  # Enable CORS for all requests
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: *
+  Access-Control-Allow-Headers: *
+  Access-Control-Expose-Headers: *
+  Access-Control-Allow-Credentials: true

@@ -1,171 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>My M Market</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            padding: 16px;
-        }
-        
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        
-        /* Шапка с логотипом */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: transparent;
-            padding: 24px 0 0 32px;
-            z-index: 1000;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .logo {
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 900;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .logo {
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: 900;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            color: #000;
-        }
-        
-        .logo .main {
-            font-size: 120px;
-            font-weight: 900;
-            margin-bottom: -30px;
-            color: #000;
-        }
-        
-        .logo .sub {
-            font-size: 36px;
-            font-weight: 600;
-            margin-left: 12px;
-            letter-spacing: 12px;
-            text-transform: lowercase;
-            color: #000;
-        }
-        
-        .content {
-            padding-top: 80px;
-        }
-        
-        /* Остальные стили */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 16px;
-            padding: 16px;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 8px;
-        }
-        
-        .product-name {
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        
-        .product-price {
-            color: #2196f3;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        
-        .add-to-cart {
-            display: block;
-            width: 100%;
-            padding: 8px;
-            background-color: #2196f3;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .add-to-cart:hover {
-            background-color: #1976d2;
-        }
-        
-        .cart-button {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 16px;
-            background-color: #2196f3;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-        }
-        
-        .cart-button.show {
-            display: block;
-        }
-    </style>
+    <title>Маркет</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <div class="sub">my</div>
-            <div class="main">M</div>
+    <header>
+        <nav>
+            <div class="logo">Мой маркет</div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Каталог</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide active" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                    <div class="slide-content">
+                        <h1>Добро пожаловать в наш маркет</h1>
+                        <p>Выберите категорию товаров</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #FF4081, #E91E63);">
+                    <div class="slide-content">
+                        <h1>Специальные предложения</h1>
+                        <p>Проверьте наши акционные товары</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #FFEB3B, #FDD835);">
+                    <div class="slide-content">
+                        <h1>Новинки</h1>
+                        <p>Попробуйте наши новые продукты</p>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background: linear-gradient(135deg, #7C4DFF, #5E35B1);">
+                    <div class="slide-content">
+                        <h1>Популярные товары</h1>
+                        <p>Товары, которые любят наши клиенты</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="nav-btn prev">←</button>
+                <button class="nav-btn next">→</button>
+            </div>
         </div>
-    </div>
-    
-    <div class="content">
-        <div class="container">
-            <div class="products" id="products"></div>
+
+        <section id="categories" class="categories-section">
+            <div class="category-buttons">
+                <button class="category-btn" data-category="all">
+                    Все
+                </button>
+                <button class="category-btn" data-category="favorites">
+                    ❤️ Избранные
+                </button>
+                <button class="category-btn" data-category="hits">
+                    🔥 Хит продаж
+                </button>
+                <button class="category-btn" data-category="chips">
+                    Pringles
+                </button>
+                <button class="category-btn" data-category="drinks">
+                    Fanta
+                </button>
+                <button class="category-btn" data-category="drinks">
+                    Coca-Cola
+                </button>
+                <button class="category-btn" data-category="drinks">
+                    Pepsi
+                </button>
+                <button class="category-btn" data-category="candies">
+                    Fini
+                </button>
+
+                <button class="category-btn" data-category="candies">
+                    Haribo
+                </button>
+                <button class="category-btn" data-category="candies">
+                    Orion
+                </button>
+                <button class="category-btn" data-category="snacks">
+                    Buldak
+                </button>
+                <button class="category-btn" data-category="candies">
+                    Haribo
+                </button>
+            </div>
+        </section>
+
+        <section class="cards-slider">
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="card card-1">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Консультации">
+                        </div>
+                        <div class="card-content">
+                            <h3>Консультации</h3>
+                            <p>Профессиональные консультации по развитию бизнеса</p>
+                        </div>
+                    </div>
+                    <div class="card card-2">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Доставка">
+                        </div>
+                        <div class="card-content">
+                            <h3>Доставка</h3>
+                            <p>Быстрая доставка товаров по всей стране</p>
+                        </div>
+                    </div>
+                    <div class="card card-3">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Поддержка">
+                        </div>
+                        <div class="card-content">
+                            <h3>Поддержка</h3>
+                            <p>24/7 поддержка клиентов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="products-section">
+            <div class="products-grid">
+                <!-- Пример карточки товара -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Кофе Nescafe Gold</h3>
+                        <p>Сорт: Арабика</p>
+                        <div class="product-price">
+                            <span>Цена: 599 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Добавим еще карточки -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Чай Lipton</h3>
+                        <p>Сорт: Зеленый</p>
+                        <div class="product-price">
+                            <span>Цена: 199 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Чипсы Lays</h3>
+                        <p>Вкус: Классический</p>
+                        <div class="product-price">
+                            <span>Цена: 99 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Шоколад Alpen Gold</h3>
+                        <p>Вкус: Молочный</p>
+                        <div class="product-price">
+                            <span>Цена: 149 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Сок J7</h3>
+                        <p>Вкус: Апельсин</p>
+                        <div class="product-price">
+                            <span>Цена: 129 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Пицца Pizza Hut</h3>
+                        <p>Вкус: Маргарита</p>
+                        <div class="product-price">
+                            <span>Цена: 499 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Товар">
+                    </div>
+                    <div class="product-info">
+                        <h3>Сникерс</h3>
+                        <p>Вкус: Классический</p>
+                        <div class="product-price">
+                            <span>Цена: 149 ₽</span>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="changeQuantity(this, -1)">-</button>
+                                <input type="number" value="1" min="1" class="quantity-input">
+                                <button class="quantity-btn" onclick="changeQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart">Добавить в корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <div class="cart-button" id="cartButton">Корзина: 0 ₽</div>
-    <script src="app.js"></script>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Мой Сайт. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-<-bash: -rwxr-xr-x@: command not found Deploy test -->
-<-bash: -rwxr-xr-x@: command not found Deploy test -->
-<-bash: -rwxr-xr-x@: command not found Deploy to starlit-creponne -->
