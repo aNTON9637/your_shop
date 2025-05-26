@@ -27,7 +27,7 @@ bot.onText(/Магазин 🛍️/, (msg) => {
                 {
                     text: 'Перейти в магазин 🛍️',
                     web_app: {
-                        url: 'https://anton9637.github.io/your_shop/index.html?v=1.0.2'
+                        url: 'https://anton9637.github.io/your_shop/'
                     }
                 }
             ]]
