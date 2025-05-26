@@ -1,0 +1,11 @@
+{
+  "siteId": "9981720f-bc1a-4467-8a6d-2e3eb80229d4",
+  "domains": [
+    "mareket.netlify.app",
+    "starlit-creponne-78c41c.netlify.app"
+  ],
+  "build": {
+    "command": "npm run build",
+    "directory": "dist"
+  }
+}
