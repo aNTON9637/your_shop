@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html bot.js app.js package.json dist/",
+    "dev": "npm run build"
+  },
   "dependencies": {
     "node-telegram-bot-api": "^0.66.0"
   },
